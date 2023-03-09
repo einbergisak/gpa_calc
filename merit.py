@@ -25,12 +25,16 @@ grades = [
     ("Test course", 10.5, 'A')
 ]
 
+# Initialize a dictionary with 0 occurrences of each grade
+occurences_of_grade = {k: 0 for k in grade_value.keys()}
+
 # Calculate GPA
 total_hp = 0.0
 points = 0.0
 for _, hp, grade in grades:
     total_hp += hp
     points += hp * grade_value[grade]
+    occurences_of_grade[grade] += 1
 gpa = points / total_hp
 
 # Sort courses by grade and course name
@@ -43,5 +47,14 @@ print("\nCourses:")
 for course, hp, grade in grades:
     print(f"\t{course:{course_column_width}} {grade} {hp:5} hp")
 
+
+summary = "\nSummary:\n\t"
+for grade in grade_value.keys():
+    if occurences_of_grade[grade] == 0:
+        continue
+    suffix = ',' if grade != 'F' else '\n'
+    summary += f"{grade}: {occurences_of_grade[grade]}x{suffix:3}"
+print(summary)
+
 # Current GPA
-print("\n GPA: %.2f" % gpa)
+print("GPA: %.2f" % gpa + "\n")
