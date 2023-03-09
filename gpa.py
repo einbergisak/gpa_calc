@@ -15,8 +15,7 @@ grade_value = {
 grades = [
     ("course 2", 3.0, 'B'),
     ("Course 3", 3.0, 'F'),
-    ("Course 1", 4.5, 'B'),
-    ("Example", 7.5, 'A'),
+    ("Example 1", 7.5, 'A'),
     ("Course 4", 12.5, 'B'),
     ("Example 2", 3.0, 'D'),
     ("Course 1", 4.5, 'D'),
