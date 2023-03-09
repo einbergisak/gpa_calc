@@ -33,5 +33,15 @@ for _, hp, grade in grades:
     points += hp * grade_value[grade]
 gpa = points / total_hp
 
+# Sort courses by grade and course name
+grades.sort(key=lambda x: x[0].lower())
+grades.sort(key=lambda x: x[2])
+
+# Adjust column width to fit longest course name
+course_column_width = 1 + max(len(course) for course, _, _ in grades)
+print("\nCourses:")
+for course, hp, grade in grades:
+    print(f"\t{course:{course_column_width}} {grade} {hp:5} hp")
+
 # Current GPA
-print("GPA: %.2f" % gpa)
+print("\n GPA: %.2f" % gpa)
